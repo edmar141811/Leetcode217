@@ -1,0 +1,27 @@
+/*
+Runtime 44 ms
+Beats 71.54%
+Memory 90.63 MB
+Beats 72.33%
+
+Overall, a simple problem with a simple solution ok performance
+*/
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int,int> numList;
+        // a simple loop to check all numbers that are ordered if dupe
+        // is found then breaks and returns true if not continues till the end
+        for(int i = 0; i< nums.size(); i++){
+            if(numList.find(nums[i])!=numList.end()){
+                return true;
+                break;
+            }
+            else {
+                numList[nums[i]] = nums[i];
+            }
+        }
+        return false;
+    }
+};
